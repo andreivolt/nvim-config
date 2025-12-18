@@ -21,6 +21,9 @@ vim.api.nvim_set_hl(0, "URL", { underline = true, fg = "skyblue" })
 
 vim.cmd("colorscheme aurora")
 
+-- Apply immediately after colorscheme load
+vim.api.nvim_set_hl(0, "WinSeparator", { link = "Comment" })
+
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "*",
   callback = function()
@@ -28,6 +31,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 
+    -- Window separator same color as comments
+    vim.api.nvim_set_hl(0, "WinSeparator", { link = "Comment" })
 
     -- Handle EndOfBuffer coloring
     local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
@@ -47,12 +52,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 
--- Configure window separator colors using 256 indexed colors (matching tmux)
-vim.api.nvim_set_hl(0, "WinSeparator", {
-  fg = "#303030", -- Hex equivalent of colour236 (dark gray)
-  ctermfg = 236,  -- Same as tmux's colour236 for 256-color terminals
-  bg = "NONE"     -- Transparent background
-})
+-- Thinnest vertical separator character
+vim.opt.fillchars:append({ vert = "▏" })
 
 
 vim.opt.winbar = ""
