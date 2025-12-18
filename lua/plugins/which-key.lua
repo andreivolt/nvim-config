@@ -5,6 +5,9 @@ return {
     vim.o.timeout = true
     vim.o.timeoutlen = 300
   end,
-  config = true,
-  -- event = "VimEnter," -- TODO
+  opts = {
+    win = {
+      border = "single",
+    },
+  },
 }
