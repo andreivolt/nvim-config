@@ -1,5 +1,17 @@
 vim.deprecate = function() end
 
+-- kitty-scrollback: minimal UI
+if vim.env.KITTY_SCROLLBACK_NVIM then
+  vim.opt.signcolumn = "no"
+  vim.opt.statuscolumn = ""
+  vim.opt.number = false
+  vim.opt.relativenumber = false
+  vim.opt.foldcolumn = "0"
+  vim.opt.wrap = true
+  vim.opt.linebreak = true
+  vim.opt.laststatus = 0
+end
+
 require("user.performance")
 
 vim.g.mapleader = " "
@@ -45,6 +57,7 @@ vim.opt.splitright = true
 vim.opt.tabstop = 2
 vim.opt.tags:prepend({ "./tags;" })
 vim.opt.tags:remove({ "./tags", "./tags;" })
+vim.opt.autoread = true
 vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.wildignorecase = true
@@ -65,6 +78,10 @@ vim.api.nvim_create_autocmd("VimResized", {
   callback = function()
     vim.cmd.wincmd("=")
   end,
+})
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  command = "silent! checktime",
 })
 
 
