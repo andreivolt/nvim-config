@@ -28,6 +28,7 @@ vim.keymap.set("v", "<tab>", ">gv")
 vim.keymap.set("v", "<s-tab>", "<gv")
 vim.keymap.set("n", "<tab>", ">>")
 vim.keymap.set("n", "<s-tab>", "<<")
+vim.keymap.set("n", "<C-i>", "<C-i>") -- preserve jump forward (distinct from Tab with CSI u)
 
 vim.keymap.set("n", "<leader>tn", function() vim.cmd("set number!") end)
 vim.keymap.set("n", "<leader>ts", function() vim.cmd("set spell!") end)
