@@ -34,6 +34,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Window separator same color as comments
     vim.api.nvim_set_hl(0, "WinSeparator", { link = "Comment" })
 
+    -- Treesitter context background
+    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
+    vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
+
     -- Handle EndOfBuffer coloring
     local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
     if normal_hl.bg then
@@ -51,6 +55,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Apply transparent background to current colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
+vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
 
 -- Thinnest vertical separator character
 vim.opt.fillchars:append({ vert = "▏" })
