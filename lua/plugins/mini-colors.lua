@@ -3,5 +3,6 @@ return {
   event = "VeryLazy",
   config = function()
     require('mini.colors').setup()
+    require('mini.bracketed').setup()
   end
 }
