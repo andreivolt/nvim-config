@@ -57,8 +57,6 @@ vim.opt.splitright = true
 vim.opt.tabstop = 2
 vim.opt.tags:prepend({ "./tags;" })
 vim.opt.tags:remove({ "./tags", "./tags;" })
-vim.opt.autoread = true
-vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest:full,full"
@@ -111,6 +109,13 @@ vim.api.nvim_create_autocmd("VimResized", {
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   command = "silent! checktime",
+})
+
+-- checktime skips background buffers, causing false "modified" prompts on quit
+vim.api.nvim_create_autocmd("QuitPre", {
+  callback = function()
+    vim.cmd("silent! checktime")
+  end,
 })
 
 
