@@ -57,6 +57,7 @@ vim.opt.splitright = true
 vim.opt.tabstop = 2
 vim.opt.tags:prepend({ "./tags;" })
 vim.opt.tags:remove({ "./tags", "./tags;" })
+vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest:full,full"
