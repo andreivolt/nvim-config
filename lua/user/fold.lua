@@ -1,9 +1,5 @@
-vim.opt.fillchars.append = { fold = " ", foldclose = "▸", foldopen = "▾" }
--- vim.opt.foldcolumn = "1"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldmethod = "expr"
-vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
--- vim.wo.foldtext = 'getline(vim.v.foldstart).."..."..string.match(getline(vim.v.foldend), "^%s*(.-)%s*$")' -- TODO
+-- ufo.nvim handles foldexpr/foldmethod via provider_selector
+vim.opt.fillchars:append({ fold = " ", foldclose = "▸", foldopen = "▾" })
 
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
