@@ -16,7 +16,7 @@
 --   end,
 -- })
 
-vim.api.nvim_exec([[syn match URL /http[s]\?:\/\/[[:alnum:]%\/_#.-]*/ containedin=ALL]], false)
+vim.cmd([[syn match URL /http[s]\?:\/\/[[:alnum:]%\/_#.-]*/ containedin=ALL]])
 vim.api.nvim_set_hl(0, "URL", { underline = true, fg = "skyblue" })
 
 vim.cmd("colorscheme aurora")
