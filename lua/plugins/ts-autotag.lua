@@ -1,34 +1,10 @@
-local filetypes = {
-  'astro',
-  'glimmer',
-  'handlebars',
-  'hbs',
-  'html',
-  'javascript',
-  'javascriptreact',
-  'jsx',
-  'markdown',
-  'rescript',
-  'svelte',
-  'tsx',
-  'typescript',
-  'typescriptreact',
-  'vue',
-  'xml',
-}
-
 return {
   'windwp/nvim-ts-autotag',
-  dependencies = 'nvim-treesitter',
+  dependencies = 'nvim-treesitter/nvim-treesitter',
   opts = {
-    autotag = {
-      enable = true,
-      filetypes = filetypes
-    },
+    enable_close = true,
+    enable_rename = true,
+    enable_close_on_slash = false,
   },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
-  end,
-  event = 'InsertEnter',
-  ft = filetypes,
+  event = { 'BufReadPre', 'BufNewFile' },
 }
