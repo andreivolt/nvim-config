@@ -42,6 +42,7 @@ vim.opt.pumblend = 25
 vim.opt.pumheight = 10
 vim.opt.ruler = false
 vim.opt.scrolloff = 10
+vim.opt.smoothscroll = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append({ I = true })
