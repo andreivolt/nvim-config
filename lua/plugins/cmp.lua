@@ -5,12 +5,7 @@ return {
     "InsertEnter",
   },
   dependencies = {
-    {
-      'L3MON4D3/LuaSnip',
-      dependencies = {
-        'rafamadriz/friendly-snippets',
-      },
-    },
+    'L3MON4D3/LuaSnip',  -- needed for LSP snippet expansion
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
