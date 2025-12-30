@@ -38,6 +38,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
 
+    -- Darker diff colors for gitsigns preview (muted, dark tones)
+    vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#253525" })
+    vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#352525" })
+    vim.api.nvim_set_hl(0, "DiffChange", { bg = "#252535" })
+    vim.api.nvim_set_hl(0, "DiffText", { bg = "#353525" })
+
     -- Handle EndOfBuffer coloring
     local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
     if normal_hl.bg then
@@ -57,6 +63,10 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
+vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#253525" })
+vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#352525" })
+vim.api.nvim_set_hl(0, "DiffChange", { bg = "#252535" })
+vim.api.nvim_set_hl(0, "DiffText", { bg = "#353525" })
 
 -- Thinnest vertical separator character
 vim.opt.fillchars:append({ vert = "▏" })
