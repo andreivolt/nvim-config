@@ -1,14 +1,15 @@
 return {
-  "norcalli/nvim-colorizer.lua",
+  "NvChad/nvim-colorizer.lua",
   event = {
     'BufNewFile',
     'BufReadPost',
   },
   opts = {
-    'css',
-    'html',
-    'javascript',
-    'lua',
+    filetypes = {
+      'css',
+      'html',
+      'javascript',
+      'lua',
+    },
   },
 }
-
