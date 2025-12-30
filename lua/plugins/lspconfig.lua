@@ -15,21 +15,50 @@ return {
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         local opts = { buffer = ev.buf }
+        -- navigation
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts) -- TODO: conflicts with tmux navigation
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
+        -- info
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('i', '<C-x><C-x>', vim.lsp.buf.signature_help, opts)
+        -- actions
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format({ async = true }) end, opts)
+        -- diagnostics
+        vim.keymap.set('n', '[a', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+        vim.keymap.set('n', ']a', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+        vim.keymap.set('n', '<Leader>a', vim.diagnostic.open_float, opts)
+        -- workspace
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
-          vim.lsp.buf.format { async = true }
-        end, opts)
+
+        -- show diagnostics on cursor hold
+        vim.api.nvim_create_autocmd("CursorHold", {
+          buffer = ev.buf,
+          callback = function()
+            vim.diagnostic.open_float(nil, {
+              focusable = false,
+              close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+              border = "rounded",
+              source = "always",
+              prefix = " ",
+              scope = "cursor",
+            })
+          end
+        })
+
+        -- format on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = ev.buf,
+          callback = function()
+            vim.lsp.buf.format({ async = false })
+          end,
+        })
       end,
     })
 
