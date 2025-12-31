@@ -27,7 +27,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdwinheight = 10
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
-vim.opt.guifont = "Iosevka Nerd Font Mono:h20:w-2:#h-none"
+vim.opt.guifont = "Pragmasevka Nerd Font Light:h20:w-2:#h-none"
 vim.opt.ignorecase = true
 vim.opt.infercase = true
 vim.opt.laststatus = 0
@@ -163,9 +163,6 @@ end, { expr = true })
 --
 -- " hide messages after 1.5s
 -- set updatetime=1500 | autocmd CursorHold * :echo
---
--- " windows
--- nmap <silent> <C-h> :wincmd h<CR> | nmap <silent> <C-j> :wincmd j<CR> | nmap <silent> <C-k> :wincmd k<CR> | nmap <silent> <C-l> :wincmd l<CR>
 vim.o.updatetime = 500
 
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -176,11 +173,3 @@ vim.api.nvim_create_autocmd("CursorHold", {
   end,
 })
 
-
--- -- Default steady beam everywhere, blinking beam only in insert
--- vim.opt.guicursor = {
---   "n-v-c:ver25",                                 -- Normal/Visual/Command: steady beam
---   "i:ver25-blinkwait700-blinkon400-blinkoff250", -- Insert: blinking beam
---   "r-cr:ver25",                                  -- Replace modes: steady beam
---   "o:ver25",                                     -- Operator-pending: steady beam
--- }
