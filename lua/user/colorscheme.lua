@@ -97,8 +97,4 @@ vim.api.nvim_set_hl(0, "GitSignsAddLnInline", { bg = "#3e5e20" })
 vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", { bg = "#661a1a" })
 vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", { bg = "#144a66" })
 
--- Thinnest vertical separator character
-vim.opt.fillchars:append({ vert = "▏" })
-
-
 vim.opt.winbar = ""
