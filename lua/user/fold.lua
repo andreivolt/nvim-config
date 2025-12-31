@@ -1,5 +1,10 @@
 -- ufo.nvim handles foldexpr/foldmethod via provider_selector
-vim.opt.fillchars:append({ fold = " ", foldclose = "▸", foldopen = "▾" })
+vim.opt.fillchars = {
+  vert = "▏",
+  fold = " ",
+  foldclose = "▸",
+  foldopen = "▾",
+}
 
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
