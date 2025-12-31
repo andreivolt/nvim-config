@@ -22,8 +22,8 @@ return {
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
         -- info
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('i', '<C-x><C-x>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover({ border = 'single' }) end, opts)
+        vim.keymap.set('i', '<C-x><C-x>', function() vim.lsp.buf.signature_help({ border = 'single' }) end, opts)
         -- actions
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts)
@@ -44,7 +44,7 @@ return {
             vim.diagnostic.open_float(nil, {
               focusable = false,
               close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-              border = "rounded",
+              border = "single",
               source = "always",
               prefix = " ",
               scope = "cursor",
@@ -63,7 +63,6 @@ return {
     })
 
     require("mason").setup()
-    require("mason-lspconfig").setup()
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -85,6 +84,15 @@ return {
         -- Default handler for all servers
         function(server_name)
           require('lspconfig')[server_name].setup({ capabilities = capabilities })
+        end,
+        -- lua_ls with navic integration
+        lua_ls = function()
+          require('lspconfig').lua_ls.setup({
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+              require("nvim-navic").attach(client, bufnr)
+            end,
+          })
         end,
       }
     }
