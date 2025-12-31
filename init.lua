@@ -27,7 +27,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdwinheight = 10
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
-vim.opt.guifont = "Pragmasevka Nerd Font Light:h20:w-2:#h-none"
+vim.opt.guifont = "Pragmasevka Nerd Font Light:h14:w-2:#h-none"
 vim.opt.ignorecase = true
 vim.opt.infercase = true
 vim.opt.laststatus = 0
@@ -156,13 +156,6 @@ vim.keymap.set('c', '<S-Tab>', function()
   end
 end, { expr = true })
 
--- " lisp case movement
--- set iskeyword+=-
---
--- set fillchars=stl:\ ,stlnc:\ ,vert:│
---
--- " hide messages after 1.5s
--- set updatetime=1500 | autocmd CursorHold * :echo
 vim.o.updatetime = 500
 
 vim.api.nvim_create_autocmd("CursorHold", {
