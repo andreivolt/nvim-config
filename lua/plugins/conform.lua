@@ -6,5 +6,9 @@ return {
       timeout_ms = 500,
       lsp_format = "fallback",
     },
+    formatters_by_ft = {
+      python = { "ruff_format" },
+      sh = { "shfmt" },
+    },
   },
 }
