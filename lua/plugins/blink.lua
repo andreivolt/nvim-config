@@ -14,8 +14,20 @@ return {
     keymap = {
       preset = 'none',
       ['<CR>'] = { 'accept', 'fallback' },
-      ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
-      ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+      ['<Tab>'] = {
+        'select_next',
+        'snippet_forward',
+        function()
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>(TaboutMulti)', true, true, true), 'm', false)
+        end,
+      },
+      ['<S-Tab>'] = {
+        'select_prev',
+        'snippet_backward',
+        function()
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>(TaboutBackMulti)', true, true, true), 'm', false)
+        end,
+      },
       ['<C-j>'] = { 'select_next', 'fallback' },
       ['<C-k>'] = { 'select_prev', 'fallback' },
       ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
