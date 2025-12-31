@@ -1,9 +1,10 @@
--- vim.g.neovide_input_macos_alt_is_meta = true -- TODO {
-vim.g.neovide_cursor_animate_in_insert_mode = false
-vim.g.neovide_cursor_animation_length = 0.02
+-- Cursor animation (fast, unobtrusive, visible)
+vim.g.neovide_cursor_animation_length = 0.06
+vim.g.neovide_cursor_short_animation_length = 0.02
+vim.g.neovide_cursor_trail_size = 0.7
+vim.g.neovide_cursor_animate_in_insert_mode = true
 vim.g.neovide_cursor_smooth_blink = true
-vim.g.neovide_cursor_trail_size = 0.8
-vim.g.neovide_cursor_vfx_mode = "ripple"
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_opacity = 0.7
 vim.g.neovide_remember_window_size = false
