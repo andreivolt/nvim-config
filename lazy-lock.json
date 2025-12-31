@@ -7,6 +7,7 @@
   "committia.vim": { "branch": "master", "commit": "c8c0f255e8090ed90dd9d5dd2e8672994f8e3671" },
   "conform.nvim": { "branch": "master", "commit": "4b713b9da0061a54750bfed457e190459be28c7b" },
   "conjure": { "branch": "main", "commit": "90e7dbda6b2ba4e00e2876e7a50311e2e0ba51d2" },
+  "fff.nvim": { "branch": "main", "commit": "f6af8353c3cb02ddde1588f24f27ff8b3a4037cf" },
   "fold-imports.nvim": { "branch": "main", "commit": "7211b1f6ee61c972be5291e3a9cca1516b790439" },
   "git-blame.nvim": { "branch": "main", "commit": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7" },
   "gitsigns.nvim": { "branch": "main", "commit": "130beacf8a51f00aede9c31064c749136679a321" },
