@@ -1,9 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
-    preview_config = {
-      border = 'single',
-    },
     on_attach = function(bufnr)
       local gs = require('gitsigns')
       local opts = { buffer = bufnr }

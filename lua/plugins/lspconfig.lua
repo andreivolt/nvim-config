@@ -22,8 +22,8 @@ return {
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
         -- info
-        vim.keymap.set('n', 'K', function() vim.lsp.buf.hover({ border = 'single' }) end, opts)
-        vim.keymap.set('i', '<C-x><C-x>', function() vim.lsp.buf.signature_help({ border = 'single' }) end, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('i', '<C-x><C-x>', vim.lsp.buf.signature_help, opts)
         -- actions
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, 'ga', vim.lsp.buf.code_action, opts)
@@ -44,7 +44,6 @@ return {
             vim.diagnostic.open_float(nil, {
               focusable = false,
               close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-              border = "single",
               source = "always",
               prefix = " ",
               scope = "cursor",

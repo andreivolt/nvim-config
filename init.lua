@@ -23,6 +23,7 @@ vim.treesitter.language.register('bash', 'zsh')
 -- vim.opt.belloff = ""
 -- vim.opt.errorbells = true
 -- vim.opt.winblend = 25
+vim.o.winborder = "single"
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdwinheight = 10
