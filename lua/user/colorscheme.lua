@@ -34,6 +34,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Window separator same color as comments
     vim.api.nvim_set_hl(0, "WinSeparator", { link = "Comment" })
 
+    -- Selection highlight (overlay style - subtle blue tint)
+    vim.api.nvim_set_hl(0, "Visual", { bg = "#264f78" })
+
     -- Subtle floating window borders (global + plugin-specific)
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#555555" })
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
@@ -78,6 +81,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Apply transparent background to current colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "Visual", { bg = "#264f78" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#555555" })
 vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
