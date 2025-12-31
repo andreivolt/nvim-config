@@ -14,9 +14,25 @@ vim.opt.linespace = -2
 
 require("user.cursor_color")
 
+-- Font scaling
+vim.g.neovide_scale_factor = 1.0
+vim.keymap.set({ 'n', 'v' }, '<C-=>', function()
+  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+end)
+vim.keymap.set({ 'n', 'v' }, '<C-+>', function()
+  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+end)
+vim.keymap.set({ 'n', 'v' }, '<C-->', function()
+  if vim.g.neovide_scale_factor > 0.5 then
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1
+  end
+end)
+vim.keymap.set({ 'n', 'v' }, '<C-0>', function()
+  vim.g.neovide_scale_factor = 1.0
+end)
+
 -- vim.api.nvim_create_autocmd({"VimEnter", "BufWinEnter"}, {
 --   callback = function()
 --     if vim.bo.buftype == "" then vim.wo.winbar = "%f" end
 --   end,
 -- })
---
