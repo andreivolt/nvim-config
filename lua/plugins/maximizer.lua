@@ -16,7 +16,7 @@ return {
     },
     animation = {
       enable = true,
-      duration = 150,
+      duration = 75,
     },
   },
 }
