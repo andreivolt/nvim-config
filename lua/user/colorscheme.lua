@@ -104,5 +104,3 @@ vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", { bg = "#661a1a" })
 vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", { bg = "#144a66" })
 vim.api.nvim_set_hl(0, "IblIndent", { fg = "#262631" })
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#3f3866" })
-
-vim.opt.winbar = ""
