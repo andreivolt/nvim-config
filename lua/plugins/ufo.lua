@@ -2,8 +2,8 @@ return {
   'kevinhwang91/nvim-ufo',
   dependencies = 'kevinhwang91/promise-async',
   init = function()
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
+    vim.opt.foldlevel = 99
+    vim.opt.foldlevelstart = 99
   end,
   opts = {
     -- open opening the buffer, close these fold kinds

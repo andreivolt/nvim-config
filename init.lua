@@ -23,7 +23,7 @@ vim.treesitter.language.register('bash', 'zsh')
 -- vim.opt.belloff = ""
 -- vim.opt.errorbells = true
 -- vim.opt.winblend = 25
-vim.o.winborder = "single"
+vim.opt.winborder = "single"
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdwinheight = 10
@@ -131,7 +131,7 @@ vim.keymap.set('c', '<S-Tab>', function()
   end
 end, { expr = true })
 
-vim.o.updatetime = 500
+vim.opt.updatetime = 500
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
