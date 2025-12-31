@@ -8,4 +8,4 @@ function no_scroll_at_eof()
   end
 end
 
-vim.keymap.set('n', '<c-f>', '<c-f>:lua no_scroll_at_eof()<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<c-f>', '<c-f>:lua no_scroll_at_eof()<cr>', { silent = true })
