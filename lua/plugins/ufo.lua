@@ -8,7 +8,7 @@ return {
   opts = {
     -- open opening the buffer, close these fold kinds
     close_fold_kinds_for_ft = {
-      default = { "imports", "comment" },
+      default = { "comment" },
       json = { "array" },
     },
     provider_selector = function(bufnr, filetype, buftype)
