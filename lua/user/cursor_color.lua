@@ -8,16 +8,14 @@ vim.api.nvim_create_autocmd('ModeChanged', {
   callback = function()
     local mode = vim.fn.mode()
     local color = ({
-      n = '#cfcfdd', -- normal: aurora accent_6
-      i = '#9ceb4f', -- insert: aurora green
-      v = '#9d8cff', -- visual: aurora purple
-      V = '#9d8cff', -- visual line: aurora purple
-      ['\22'] = '#ff70ff', -- visual block: aurora pink
-      c = '#ff9326', -- command: aurora orange
-      r = '#ff4040', -- replace: aurora red
-      R = '#ff4040', -- replace virtual: aurora red
-      ['!'] = '#ff9326', -- shell: aurora orange
-      t = '#18ffe0', -- terminal: aurora aqua
+      n = '#ffffff', -- normal: white
+      i = '#9ceb4f', -- insert: green (adding)
+      v = '#31baff', -- visual: blue (selection)
+      V = '#31baff', -- visual line: blue
+      ['\22'] = '#31baff', -- visual block: blue
+      c = '#ff9326', -- command: orange
+      r = '#ff4040', -- replace: red (destructive)
+      R = '#ff4040', -- replace: red
     })[mode]
 
     if not color then return end
