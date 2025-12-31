@@ -64,6 +64,7 @@ vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.wildignorecase = true
 vim.opt.wildmode = "longest:full,full"
+vim.opt.jumpoptions = { "stack", "view", "clean" }
 
 vim.diagnostic.config({
   virtual_text = false,
