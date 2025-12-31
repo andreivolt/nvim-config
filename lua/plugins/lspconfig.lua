@@ -53,11 +53,11 @@ return {
       'biome',
       'clojure_lsp',
       'lua_ls',
-      'pyright',
-      'rust_analyzer',
-      'ruby_lsp',
-      'ts_ls',
       'nixd',
+      'pyright',
+      'ruby_lsp',
+      'rust_analyzer',
+      'ts_ls',
     }
 
     for _, server in ipairs(servers) do
