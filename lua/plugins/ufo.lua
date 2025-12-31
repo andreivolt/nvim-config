@@ -16,7 +16,10 @@ return {
     end,
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
-      local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+      -- get trailing parens/brackets from last line
+      local endLine = vim.api.nvim_buf_get_lines(0, endLnum - 1, endLnum, false)[1] or ''
+      local closingChars = endLine:match('[%)%]%}]+%s*$') or ''
+      local suffix = (' 󰁂 %d %s'):format(endLnum - lnum, closingChars)
       local sufWidth = vim.fn.strdisplaywidth(suffix)
       local targetWidth = width - sufWidth
       local curWidth = 0
@@ -30,7 +33,6 @@ return {
           local hlGroup = chunk[2]
           table.insert(newVirtText, { chunkText, hlGroup })
           chunkWidth = vim.fn.strdisplaywidth(chunkText)
-          -- str width returned from truncate() may less than 2nd argument, need padding
           if curWidth + chunkWidth < targetWidth then
             suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
           end
