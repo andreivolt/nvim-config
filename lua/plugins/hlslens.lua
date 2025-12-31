@@ -1,4 +1,4 @@
-local kopts = { mode = "n", noremap = true, silent = true}
+local kopts = { mode = "n", silent = true }
 
 return {
   "kevinhwang91/nvim-hlslens",
