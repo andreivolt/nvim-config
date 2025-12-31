@@ -52,6 +52,7 @@ return {
       'bashls',
       'biome',
       'clojure_lsp',
+      'lua_ls',
       'pyright',
       'rust_analyzer',
       'ruby_lsp',
@@ -62,14 +63,6 @@ return {
     for _, server in ipairs(servers) do
       lspconfig[server].setup({ capabilities = capabilities })
     end
-
-    -- lua_ls with navic integration
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        require("nvim-navic").attach(client, bufnr)
-      end,
-    })
   end,
   event = { "BufReadPre", "BufNewFile" }
 }
