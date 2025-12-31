@@ -11,12 +11,7 @@ vim.g.neovide_scroll_animation_length = 0.07
 vim.g.neovide_window_blurred = true
 vim.opt.linespace = -2
 
--- TODO
-vim.opt.guicursor = {
-  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50",
-  "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-  "sm:block-blinkwait175-blinkoff150-blinkon175"
-}
+require("user.cursor_color")
 
 -- vim.api.nvim_create_autocmd({"VimEnter", "BufWinEnter"}, {
 --   callback = function()
