@@ -34,15 +34,32 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- Window separator same color as comments
     vim.api.nvim_set_hl(0, "WinSeparator", { link = "Comment" })
 
+    -- Subtle floating window borders (global + plugin-specific)
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#555555" })
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { link = "FloatBorder" })
+
     -- Treesitter context background
     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
 
     -- Darker diff colors for gitsigns preview (muted, dark tones)
-    vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#253525" })
-    vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#352525" })
-    vim.api.nvim_set_hl(0, "DiffChange", { bg = "#252535" })
-    vim.api.nvim_set_hl(0, "DiffText", { bg = "#353525" })
+    vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#092C00" })
+    vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#3F0600" })
+    vim.api.nvim_set_hl(0, "DiffChange", { bg = "#2a2a33" })
+    vim.api.nvim_set_hl(0, "DiffText", { bg = "#33332a" })
+
+    -- Gitsigns inline word diff (using aurora's dark colors)
+    vim.api.nvim_set_hl(0, "GitSignsAddInline", { bg = "#3e5e20" })      -- aurora darkgreen
+    vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { bg = "#661a1a" })   -- aurora darkred
+    vim.api.nvim_set_hl(0, "GitSignsChangeInline", { bg = "#144a66" })   -- aurora darkblue
+    vim.api.nvim_set_hl(0, "GitSignsAddLnInline", { bg = "#3e5e20" })
+    vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", { bg = "#661a1a" })
+    vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", { bg = "#144a66" })
 
     -- Handle EndOfBuffer coloring
     local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
@@ -61,12 +78,24 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 -- Apply transparent background to current colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#555555" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
-vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#253525" })
-vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#352525" })
-vim.api.nvim_set_hl(0, "DiffChange", { bg = "#252535" })
-vim.api.nvim_set_hl(0, "DiffText", { bg = "#353525" })
+vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#092C00" })
+vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#3F0600" })
+vim.api.nvim_set_hl(0, "DiffChange", { bg = "#2a2a33" })
+vim.api.nvim_set_hl(0, "DiffText", { bg = "#33332a" })
+vim.api.nvim_set_hl(0, "GitSignsAddInline", { bg = "#3e5e20" })
+vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { bg = "#661a1a" })
+vim.api.nvim_set_hl(0, "GitSignsChangeInline", { bg = "#144a66" })
+vim.api.nvim_set_hl(0, "GitSignsAddLnInline", { bg = "#3e5e20" })
+vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", { bg = "#661a1a" })
+vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", { bg = "#144a66" })
 
 -- Thinnest vertical separator character
 vim.opt.fillchars:append({ vert = "▏" })
