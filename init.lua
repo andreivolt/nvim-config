@@ -70,30 +70,10 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank({ timeout = 100 })
-  end,
-})
-
+require("user.highlight_on_yank")
 require("user.paste_strip_whitespace")
-
-vim.api.nvim_create_autocmd("VimResized", {
-  callback = function()
-    vim.cmd.wincmd("=")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
-  command = "silent! checktime",
-})
-
--- checktime skips background buffers, causing false "modified" prompts on quit
-vim.api.nvim_create_autocmd("QuitPre", {
-  callback = function()
-    vim.cmd("silent! checktime")
-  end,
-})
+require("user.auto_equalize_windows")
+require("user.auto_reload")
 
 
 require("user.globals")
@@ -115,29 +95,5 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
-vim.keymap.set('c', '<Tab>', function()
-  if vim.fn.getcmdtype() == '/' or vim.fn.getcmdtype() == '?' then
-    return '<CR>/<C-r>/'
-  else
-    return '<C-z>'
-  end
-end, { expr = true })
-
-vim.keymap.set('c', '<S-Tab>', function()
-  if vim.fn.getcmdtype() == '/' or vim.fn.getcmdtype() == '?' then
-    return '<CR>?<C-r>/'
-  else
-    return '<S-Tab>'
-  end
-end, { expr = true })
-
-vim.opt.updatetime = 500
-
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.defer_fn(function()
-      vim.cmd('echo ""') -- Clear the message
-    end, 1000)           -- Delay in milliseconds (2 seconds)
-  end,
-})
-
+require("user.search")
+require("user.clear_echo")
