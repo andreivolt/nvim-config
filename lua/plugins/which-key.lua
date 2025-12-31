@@ -8,6 +8,7 @@ return {
   opts = {
     win = {
       border = "single",
+      padding = { 0, 0 },
     },
   },
 }
