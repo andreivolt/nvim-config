@@ -1,14 +1,5 @@
 return {
   "neovim/nvim-lspconfig",
-  dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for Neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      -- { 'j-hui/fidget.nvim', opts = {} },
-      -- { 'folke/neodev.nvim', opts = {} },
-    },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(ev)
@@ -53,58 +44,32 @@ return {
       end,
     })
 
-    require("mason").setup()
-
     local capabilities = require('blink.cmp').get_lsp_capabilities()
+    local lspconfig = require('lspconfig')
 
-    -- require('mason-lspconfig').setup {
-    --   handlers = {
-    --     function(server_name)
-    --       local server = servers[server_name] or {}
-    --       server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-    --       require('lspconfig')[server_name].setup(server)
-    --     end,
-    --   },
-    -- }
-
-    -- Check if running on Termux
-    local is_termux = vim.fn.isdirectory('/data/data/com.termux') == 1
-
-    local config = {
-      handlers = {
-        -- Default handler for all servers
-        function(server_name)
-          require('lspconfig')[server_name].setup({ capabilities = capabilities })
-        end,
-        -- lua_ls with navic integration
-        lua_ls = function()
-          require('lspconfig').lua_ls.setup({
-            capabilities = capabilities,
-            on_attach = function(client, bufnr)
-              require("nvim-navic").attach(client, bufnr)
-            end,
-          })
-        end,
-      }
+    -- Servers with default config
+    local servers = {
+      'bashls',
+      'biome',
+      'clojure_lsp',
+      'pyright',
+      'rust_analyzer',
+      'ruby_lsp',
+      'ts_ls',
+      'nixd',
     }
 
-    -- Only auto-install servers if not on Termux
-    if not is_termux then
-      config.ensure_installed = {
-        'bashls',
-        'biome',
-        'clojure_lsp',
-        'lua_ls',
-        -- 'nil_ls',
-        'pyright',
-        'rust_analyzer',
-        -- 'ruby_lsp', -- Using system ruby-lsp instead
-        'ts_ls',
-        -- 'gopls',
-      }
+    for _, server in ipairs(servers) do
+      lspconfig[server].setup({ capabilities = capabilities })
     end
 
-    require('mason-lspconfig').setup(config)
+    -- lua_ls with navic integration
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        require("nvim-navic").attach(client, bufnr)
+      end,
+    })
   end,
   event = "VeryLazy"
 }
