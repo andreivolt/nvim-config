@@ -43,7 +43,7 @@ function M.on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- Override rename with git mv
-  vim.keymap.set("n", "r", git_mv_rename, { buffer = bufnr, noremap = true, silent = true, nowait = true })
+  vim.keymap.set("n", "r", git_mv_rename, { buffer = bufnr, silent = true, nowait = true })
 end
 
 return M
