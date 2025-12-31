@@ -12,6 +12,7 @@ if vim.env.KITTY_SCROLLBACK_NVIM then
   vim.opt.laststatus = 0
 end
 
+require("user.clipboard_osc52")
 require("user.performance")
 
 vim.g.mapleader = " "
