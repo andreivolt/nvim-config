@@ -44,6 +44,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { link = "FloatBorder" })
     vim.api.nvim_set_hl(0, "CmpPmenuBorder", { link = "FloatBorder" })
 
+    -- Blink.cmp highlights (transparent menu, matching border)
+    vim.api.nvim_set_hl(0, "BlinkCmpMenu", { link = "NormalFloat" })
+    vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "NormalFloat" })
+    vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { link = "FloatBorder" })
+
     -- Treesitter context background
     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
@@ -90,6 +96,10 @@ vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "CmpPmenuBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenu", { link = "NormalFloat" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "NormalFloat" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#1a1a1a" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#1a1a1a" })
 vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#092C00" })

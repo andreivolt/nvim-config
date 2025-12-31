@@ -37,13 +37,11 @@ return {
 
     sources = {
       default = { 'lsp', 'path', 'buffer', 'snippets' },
-      per_filetype = {
-        -- gitcommit = { 'git', 'buffer' },
-        -- markdown = { 'dictionary', 'buffer' },
-        -- text = { 'dictionary', 'buffer' },
-      },
       providers = {
-        buffer = { min_keyword_length = 5 },
+        buffer = {
+          min_keyword_length = 5,
+          max_items = 5,
+        },
       },
     },
 
