@@ -3,7 +3,9 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    bigfile = { enabled = true },
     notifier = { enabled = true },
+    scroll = { enabled = true, animate = { duration = { total = 50 } } },
     picker = {
       win = {
         input = {
