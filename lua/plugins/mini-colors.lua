@@ -13,13 +13,15 @@ return {
           local filename = MiniStatusline.section_filename({ trunc_width = 140 })
           local location = MiniStatusline.section_location({ trunc_width = 75 })
 
+          local loc_hl = vim.fn.mode() == "n" and "Comment" or mode_hl
+
           return MiniStatusline.combine_groups({
             { hl = mode_hl, strings = { "" } },  -- color only, no text
             { hl = "MiniStatuslineDevinfo", strings = { git } },
             { hl = "MiniStatuslineFilename", strings = { filename } },
             "%=",
             { hl = "MiniStatuslineDevinfo", strings = { diagnostics } },
-            { hl = mode_hl, strings = { location } },
+            { hl = loc_hl, strings = { location } },
           })
         end,
       },
