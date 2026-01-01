@@ -11,5 +11,9 @@ return {
         animation = require('mini.indentscope').gen_animation.none(),
       },
     })
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "NvimTree" },
+      callback = function() vim.b.miniindentscope_disable = true end,
+    })
   end
 }
