@@ -22,25 +22,10 @@ return {
         -- diagnostics
         vim.keymap.set('n', '[a', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
         vim.keymap.set('n', ']a', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
-        vim.keymap.set('n', '<Leader>a', vim.diagnostic.open_float, opts)
         -- workspace
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
-
-        -- show diagnostics on cursor hold
-        vim.api.nvim_create_autocmd("CursorHold", {
-          buffer = ev.buf,
-          callback = function()
-            vim.diagnostic.open_float(nil, {
-              focusable = false,
-              close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-              source = "always",
-              prefix = " ",
-              scope = "cursor",
-            })
-          end
-        })
       end,
     })
 
