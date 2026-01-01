@@ -35,5 +35,5 @@ return {
       vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', opts)
     end
   },
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile" },
 }
