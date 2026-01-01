@@ -1,7 +1,5 @@
 return {
-  "eraserhd/parinfer-rust",
-  build = "cargo build --release",
-  event = "InsertCharPre",
+  "gpanders/nvim-parinfer",
   ft = {
     "clojure",
     "elisp",
