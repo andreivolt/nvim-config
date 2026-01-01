@@ -32,7 +32,7 @@ vim.opt.confirm = true
 vim.opt.guifont = "Pragmasevka Nerd Font Light:h14:w-2:#h-none"
 vim.opt.ignorecase = true
 vim.opt.infercase = true
-vim.opt.laststatus = 0
+vim.opt.laststatus = 2
 vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { nbsp = '␣', tab = '» ', trail = '·' }
