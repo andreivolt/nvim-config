@@ -4,5 +4,4 @@ return {
     "BufNewFile",
     "BufReadPre",
   },
-  lazy = false
 }
