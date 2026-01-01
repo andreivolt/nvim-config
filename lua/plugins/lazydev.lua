@@ -2,7 +2,6 @@ return {
   "folke/lazydev.nvim",
   dependencies = {
     "neovim/nvim-lspconfig",
-    'hrsh7th/nvim-cmp',
     "SmiteshP/nvim-navic",
   },
   init = function()
