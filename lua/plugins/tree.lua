@@ -17,7 +17,6 @@ return {
       callback = function()
         vim.api.nvim_win_set_hl_ns(0, ns)
         vim.wo.statusline = "%#NvimTreeStatusLine#"
-        vim.wo.fillchars = "eob: "
       end,
     })
   end,
