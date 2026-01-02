@@ -4,6 +4,7 @@ vim.opt.fillchars = {
   fold = " ",
   foldclose = "▸",
   foldopen = "▾",
+  eob = " ",
 }
 
 vim.api.nvim_create_autocmd("FileType", {
