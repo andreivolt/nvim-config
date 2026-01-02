@@ -4,6 +4,21 @@ return {
   keys = {
     {"<leader>n", "<cmd>NvimTreeFindFileToggle<cr>"},
   },
+  config = function(_, opts)
+    require("nvim-tree").setup(opts)
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      pattern = "NvimTree_*",
+      callback = function()
+        vim.api.nvim_set_hl(0, "NvimTreeStatusLine", { link = "Normal" })
+        vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC", { link = "Normal" })
+        vim.wo.statusline = "%#NvimTreeStatusLine#"
+        vim.wo.winbar = nil
+        vim.wo.fillchars = "eob: "
+        vim.api.nvim_set_hl(0, "WinBar", { link = "Normal" })
+        vim.api.nvim_set_hl(0, "WinBarNC", { link = "Normal" })
+      end,
+    })
+  end,
   opts = {
     git = {
       enable = false,
