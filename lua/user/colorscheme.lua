@@ -48,6 +48,9 @@ local function apply_highlights()
   vim.api.nvim_set_hl(0, "IblIndent", { fg = "#262631" })              -- aurora accent_3 (very faded)
   vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#3f3866" })  -- aurora darkpurple
 
+  -- Dimmer visual selection (matches fzf bg+)
+  vim.api.nvim_set_hl(0, "Visual", { bg = "#232330" })
+
   -- Handle EndOfBuffer coloring
   local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
   if normal_hl.bg then
