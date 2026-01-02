@@ -51,6 +51,10 @@ local function apply_highlights()
   -- Dimmer visual selection (matches fzf bg+)
   vim.api.nvim_set_hl(0, "Visual", { bg = "#232330" })
 
+  -- Winbar: underline style, no background
+  vim.api.nvim_set_hl(0, "WinBar", { bg = "NONE", underline = true, sp = "#333333" })
+  vim.api.nvim_set_hl(0, "WinBarNC", { bg = "NONE", underline = true, sp = "#222222" })
+
   -- Handle EndOfBuffer coloring
   local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
   if normal_hl.bg then
