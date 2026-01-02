@@ -1,17 +1,5 @@
 vim.deprecate = function() end
 
--- kitty-scrollback: minimal UI
-if vim.env.KITTY_SCROLLBACK_NVIM then
-  vim.opt.signcolumn = "no"
-  vim.opt.statuscolumn = ""
-  vim.opt.number = false
-  vim.opt.relativenumber = false
-  vim.opt.foldcolumn = "0"
-  vim.opt.wrap = true
-  vim.opt.linebreak = true
-  vim.opt.laststatus = 0
-end
-
 require("user.clipboard_osc52")
 require("user.performance")
 
