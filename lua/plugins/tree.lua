@@ -6,16 +6,18 @@ return {
   },
   config = function(_, opts)
     require("nvim-tree").setup(opts)
+    local ns = vim.api.nvim_create_namespace("nvimtree_hl")
+    vim.api.nvim_set_hl(ns, "WinBar", { link = "Normal" })
+    vim.api.nvim_set_hl(ns, "WinBarNC", { link = "Normal" })
+    vim.api.nvim_set_hl(ns, "StatusLine", { link = "Normal" })
+    vim.api.nvim_set_hl(ns, "StatusLineNC", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "NvimTreeStatusLine", { link = "Normal" })
     vim.api.nvim_create_autocmd("BufWinEnter", {
       pattern = "NvimTree_*",
       callback = function()
-        vim.api.nvim_set_hl(0, "NvimTreeStatusLine", { link = "Normal" })
-        vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC", { link = "Normal" })
+        vim.api.nvim_win_set_hl_ns(0, ns)
         vim.wo.statusline = "%#NvimTreeStatusLine#"
-        vim.wo.winbar = nil
         vim.wo.fillchars = "eob: "
-        vim.api.nvim_set_hl(0, "WinBar", { link = "Normal" })
-        vim.api.nvim_set_hl(0, "WinBarNC", { link = "Normal" })
       end,
     })
   end,
