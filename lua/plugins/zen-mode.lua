@@ -36,7 +36,7 @@ return {
     },
     on_open = function()
       vim.cmd('ScrollbarHide')
-      vim.cmd('set statuscolumn=""') -- TODO
+      vim.wo.statuscolumn = ''
       vim.cmd('IBLDisable')
       vim.opt_local.list = false
       vim.cmd('DisableWhitespace')
