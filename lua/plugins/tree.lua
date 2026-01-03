@@ -7,11 +7,13 @@ return {
   config = function(_, opts)
     require("nvim-tree").setup(opts)
     local ns = vim.api.nvim_create_namespace("nvimtree_hl")
-    vim.api.nvim_set_hl(ns, "WinBar", { link = "Normal" })
-    vim.api.nvim_set_hl(ns, "WinBarNC", { link = "Normal" })
-    vim.api.nvim_set_hl(ns, "StatusLine", { link = "Normal" })
-    vim.api.nvim_set_hl(ns, "StatusLineNC", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "NvimTreeStatusLine", { link = "Normal" })
+    local tree_bg = "#111111"
+    vim.api.nvim_set_hl(ns, "Normal", { bg = tree_bg })
+    vim.api.nvim_set_hl(ns, "WinBar", { bg = tree_bg })
+    vim.api.nvim_set_hl(ns, "WinBarNC", { bg = tree_bg })
+    vim.api.nvim_set_hl(ns, "EndOfBuffer", { fg = tree_bg, bg = tree_bg })
+    vim.api.nvim_set_hl(ns, "WinSeparator", { fg = tree_bg, bg = tree_bg })
+    vim.api.nvim_set_hl(0, "NvimTreeStatusLine", { bg = tree_bg })
     vim.api.nvim_create_autocmd("BufWinEnter", {
       pattern = "NvimTree_*",
       callback = function()
@@ -53,6 +55,13 @@ return {
     view = {
       cursorline = false,
       width = 30,
+    },
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = false,
+        },
+      },
     },
     on_attach = require("user.nvim-tree-git-mv").on_attach,
   },
