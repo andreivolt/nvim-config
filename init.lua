@@ -65,6 +65,7 @@ require("user.auto_equalize_windows")
 require("user.auto_reload")
 require("user.auto_create_dir")
 require("user.restore_cursor_location")
+require("user.shada_sync")
 
 
 require("user.globals")
