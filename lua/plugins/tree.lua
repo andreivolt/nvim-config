@@ -49,7 +49,13 @@ return {
           file = false,
           folder = false,
           git = false,
-        }
+        },
+        glyphs = {
+          folder = {
+            arrow_closed = "⏵",
+            arrow_open = "⏷",
+          },
+        },
       }
     },
     view = {
