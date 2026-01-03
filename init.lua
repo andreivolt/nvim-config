@@ -63,6 +63,8 @@ require("user.highlight_on_yank")
 require("user.paste_strip_whitespace")
 require("user.auto_equalize_windows")
 require("user.auto_reload")
+require("user.auto_create_dir")
+require("user.restore_cursor_location")
 
 
 require("user.globals")
@@ -79,6 +81,7 @@ vim.api.nvim_create_autocmd('User', {
     if vim.g.neovide then require("user.neovide") end
     require("user.cursorline")
     require("user.keymaps")
+    require("user.no_scroll_at_eof")
   end,
 })
 
