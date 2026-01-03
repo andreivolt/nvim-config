@@ -69,7 +69,7 @@ require("user.plugins")
 
 require("user.colorscheme")
 require("user.fold")
-require("user.debug_highlight")
+require("user.prose")
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'VeryLazy',
@@ -78,8 +78,6 @@ vim.api.nvim_create_autocmd('User', {
     if vim.g.neovide then require("user.neovide") end
     require("user.cursorline")
     require("user.keymaps")
-    require("user.spell")
-    require("user.text")
   end,
 })
 
