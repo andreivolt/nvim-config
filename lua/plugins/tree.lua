@@ -44,6 +44,16 @@ return {
       highlight_git = true,
       highlight_opened_files = "all",
       root_folder_label = false,
+      indent_markers = {
+        enable = true,
+        icons = {
+          corner = "└ ",
+          edge = "│ ",
+          item = "│ ",
+          bottom = "─ ",
+          none = "  ",
+        },
+      },
       icons = {
         show = {
           file = false,
