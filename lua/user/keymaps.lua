@@ -96,6 +96,16 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+vim.keymap.set("n", "<leader>ct", function()
+  local cs = vim.bo.commentstring
+  if cs == "" then cs = "# %s" end
+  local todo = cs:gsub("%%s", "TODO: ")
+  local line = vim.api.nvim_get_current_line()
+  local trimmed = line:gsub("%s+$", "")
+  vim.api.nvim_set_current_line(trimmed .. " " .. todo)
+  vim.cmd("startinsert!")
+end, { desc = "Append TODO comment at end of line" })
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "help",
