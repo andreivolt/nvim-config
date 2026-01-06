@@ -3,14 +3,13 @@ vim.keymap.set("n", "<esc>", vim.cmd.nohlsearch)
 vim.keymap.set("n", "<leader><leader>", function()
   if vim.fn.expand("#") == "" then return end
   vim.cmd("edit #")
-end)
+end, { desc = "alt buffer" })
 
-vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)
-vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
-vim.keymap.set("n", "<leader>bp", vim.cmd.bprev)
-vim.keymap.set("n", "<leader>q", vim.cmd.q)
+vim.keymap.set("n", "<leader>bn", vim.cmd.bnext, { desc = "next" })
+vim.keymap.set("n", "<leader>bp", vim.cmd.bprev, { desc = "prev" })
+vim.keymap.set("n", "<leader>q", vim.cmd.q, { desc = "quit" })
 
-vim.keymap.set("n", "<leader>gd", function()
+vim.keymap.set("n", "<leader>fd", function()
   local file_path = vim.fn.expand('%:p')
   vim.cmd('bdelete!')
   local ok, err = vim.uv.fs_unlink(file_path)
@@ -19,7 +18,7 @@ vim.keymap.set("n", "<leader>gd", function()
   else
     vim.notify('Failed: ' .. (err or 'unknown error'), vim.log.levels.ERROR)
   end
-end)
+end, { desc = "delete file" })
 
 vim.keymap.set("n", "gp", "[v]")
 
@@ -29,8 +28,8 @@ vim.keymap.set("n", "<tab>", ">>")
 vim.keymap.set("n", "<s-tab>", "<<")
 vim.keymap.set("n", "<C-i>", "<C-i>") -- preserve jump forward (distinct from Tab with CSI u)
 
-vim.keymap.set("n", "<leader>tn", function() vim.opt.number = not vim.opt.number:get() end)
-vim.keymap.set("n", "<leader>ts", function() vim.opt.spell = not vim.opt.spell:get() end)
+vim.keymap.set("n", "<leader>tn", function() vim.opt.number = not vim.opt.number:get() end, { desc = "number" })
+vim.keymap.set("n", "<leader>ts", function() vim.opt.spell = not vim.opt.spell:get() end, { desc = "spell" })
 
 vim.keymap.set("n", "<leader>u", function()
   local line = vim.api.nvim_get_current_line()
@@ -61,7 +60,7 @@ vim.keymap.set("n", "<leader>u", function()
       end
     end
   end
-end)
+end, { desc = "open URL" })
 
 vim.keymap.set("n", "J", "mzJ`z")
 
@@ -78,23 +77,23 @@ vim.keymap.set('x', 'V', require('nvim-treesitter.incremental_selection').node_d
 
 vim.keymap.set("n", "gV", "'[V']")
 
-vim.keymap.set("n", "<leader>an", vim.cmd.next)
-vim.keymap.set("n", "<leader>ap", vim.cmd.prev)
+vim.keymap.set("n", "<leader>an", vim.cmd.next, { desc = "next" })
+vim.keymap.set("n", "<leader>ap", vim.cmd.prev, { desc = "prev" })
 
-vim.keymap.set("n", "<leader>cn", vim.cmd.cnext)
-vim.keymap.set("n", "<leader>cp", vim.cmd.cprev)
+vim.keymap.set("n", "<leader>cn", vim.cmd.cnext, { desc = "next" })
+vim.keymap.set("n", "<leader>cp", vim.cmd.cprev, { desc = "prev" })
 
 
 vim.keymap.set("v", "y", function() return 'my"' .. vim.v.register .. "y`y" end, { expr = true })
 
-vim.keymap.set("n", "n", "nzzzv", { desc = "center search hits vertically on screen and expand folds if hit is inside" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "center search hits vertically on screen and expand folds if hit is inside" })
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 -- vim.keymap.set("v", "y", "ygv<Esc>") -- TODO
 
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "diagnostic" })
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 vim.keymap.set("n", "<leader>ct", function()
   local cs = vim.bo.commentstring
@@ -104,7 +103,7 @@ vim.keymap.set("n", "<leader>ct", function()
   local trimmed = line:gsub("%s+$", "")
   vim.api.nvim_set_current_line(trimmed .. " " .. todo)
   vim.cmd("startinsert!")
-end, { desc = "Append TODO comment at end of line" })
+end, { desc = "TODO" })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {

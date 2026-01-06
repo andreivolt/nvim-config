@@ -1,7 +1,7 @@
 return {
   "folke/zen-mode.nvim",
   keys = {
-    { "<leader>z", "<cmd>ZenMode<cr>" },
+    { "<leader>z", "<cmd>ZenMode<cr>", desc = "zen" },
   },
   config = function(_, opts)
     vim.api.nvim_set_hl(0, 'ZenBg', { bg = 'NONE' })

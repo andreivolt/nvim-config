@@ -19,10 +19,10 @@ return {
     },
   },
   keys = {
-    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
-    { "<leader>fg", function() Snacks.picker.grep() end, desc = "Live grep" },
-    { "<leader>fh", function() Snacks.picker.git_log_file() end, desc = "File git history" },
-    { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent files" },
+    { "<leader>fb", function() Snacks.picker.buffers() end, desc = "buffers" },
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "files" },
+    { "<leader>fg", function() Snacks.picker.grep() end, desc = "grep" },
+    { "<leader>fh", function() Snacks.picker.git_log_file() end, desc = "git history" },
+    { "<leader>fr", function() Snacks.picker.recent() end, desc = "recent" },
   },
 }
