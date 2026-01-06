@@ -45,9 +45,9 @@ return {
     end
   },
   keys = {
-    { 'zR',        function() require('ufo').openAllFolds() end,               desc = 'Open all folds' },
-    { 'zM',        function() require('ufo').closeAllFolds() end,              desc = 'Close all folds' },
-    { '<leader>v', function() require('ufo').peekFoldedLinesUnderCursor() end, desc = 'Peek folded lines' },
+    { 'zR',        function() require('ufo').openAllFolds() end,               desc = 'open all' },
+    { 'zM',        function() require('ufo').closeAllFolds() end,              desc = 'close all' },
+    { '<leader>v', function() require('ufo').peekFoldedLinesUnderCursor() end, desc = 'peek fold' },
   },
   event = "VeryLazy",
 }
