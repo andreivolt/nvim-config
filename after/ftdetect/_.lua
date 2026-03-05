@@ -1,7 +1,6 @@
 vim.filetype.add({
   pattern = {
     ['.+'] = { -- not '.*': snacks.nvim bigfile uses that key, and vim.filetype.add deduplicates by key
-      priority = -math.huge,
       function(_, bufnr)
         local shebang_mappings = {
           ["bb"] = "clojure",
@@ -61,6 +60,7 @@ vim.filetype.add({
           end
         end
       end,
+      { priority = -math.huge },
     },
   },
 })
