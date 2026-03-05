@@ -5,6 +5,11 @@ vim.api.nvim_create_autocmd('FileType', {
     'text',
   },
   callback = function()
+    -- Skip floating windows (LSP hover/diagnostics)
+    local win = vim.api.nvim_get_current_win()
+    local config = vim.api.nvim_win_get_config(win)
+    if config.relative ~= "" then return end
+
     vim.opt_local.spell = true
     vim.opt_local.spellcapcheck = ''
     vim.wo.foldcolumn = '1'
