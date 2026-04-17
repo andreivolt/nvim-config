@@ -6,6 +6,7 @@ end
 vim.bo.expandtab = false
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
+vim.bo.commentstring = '> %s'
 
 vim.wo.foldminlines = 0
 vim.wo.foldmethod = 'indent'
