@@ -73,8 +73,9 @@ end)
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 
-vim.keymap.set('x', 'v', require('nvim-treesitter.incremental_selection').node_incremental)
-vim.keymap.set('x', 'V', require('nvim-treesitter.incremental_selection').node_decremental)
+local ts_incremental = require('user.treesitter_incremental')
+vim.keymap.set('x', 'v', ts_incremental.node_incremental, { desc = "expand treesitter selection" })
+vim.keymap.set('x', 'V', ts_incremental.node_decremental, { desc = "shrink treesitter selection" })
 
 vim.keymap.set("n", "gV", "'[V']")
 
