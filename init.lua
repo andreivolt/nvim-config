@@ -3,6 +3,7 @@ require("user.performance")
 vim.deprecate = function() end
 
 require("user.clipboard_osc52")
+require("user.restore_title")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
