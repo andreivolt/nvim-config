@@ -116,7 +116,10 @@ return {
   end,
   opts = {
     git = {
-      enable = false,
+      enable = true,
+    },
+    filters = {
+      git_ignored = true,
     },
     disable_netrw = true,
     hijack_cursor = true,
@@ -147,6 +150,9 @@ return {
         },
       },
       icons = {
+        show = {
+          git = false,
+        },
         glyphs = {
           folder = {
             arrow_closed = "⏵",
