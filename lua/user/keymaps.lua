@@ -30,6 +30,7 @@ vim.keymap.set("n", "<C-i>", "<C-i>") -- preserve jump forward (distinct from Ta
 
 vim.keymap.set("n", "<leader>tn", function() vim.opt.number = not vim.opt.number:get() end, { desc = "number" })
 vim.keymap.set("n", "<leader>ts", function() vim.opt.spell = not vim.opt.spell:get() end, { desc = "spell" })
+vim.keymap.set("n", "<leader>ta", require("user.autocorrect").toggle, { desc = "autocorrect" })
 
 vim.keymap.set("n", "<leader>u", function()
   local line = vim.api.nvim_get_current_line()

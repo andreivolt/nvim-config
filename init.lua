@@ -74,6 +74,7 @@ require("user.plugins")
 require("user.colorscheme")
 require("user.fold")
 require("user.prose")
+require("user.autocorrect")
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'VeryLazy',
