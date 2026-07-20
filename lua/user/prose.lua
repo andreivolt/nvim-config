@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd('FileType', {
     local config = vim.api.nvim_win_get_config(win)
     if config.relative ~= "" then return end
 
-    vim.opt_local.spell = true
     vim.opt_local.spellcapcheck = ''
     vim.wo.foldcolumn = '1'
 
